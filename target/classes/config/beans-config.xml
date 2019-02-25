@@ -62,4 +62,10 @@
  <bean id="venteService" class="com.stock.mvc.services.impl.VenteServiceImpl">
  	<property name="dao" ref="venteDao"></property>
  </bean>
+ 
+ <bean id="flickrDao" class="com.stock.mvc.dao.impl.FlickrDaoImpl" />
+ <bean id="flickrService" class="com.stock.mvc.services.impl.FlickrServiceImpl">
+ 	<property name="dao" ref="flickrDao"></property>
+ </bean>
+ 
 </beans>
