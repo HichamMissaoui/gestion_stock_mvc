@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.IUtilisateurDao;
 import com.stock.mvc.entities.Utilisateur;
 import com.stock.mvc.services.IUtilisateurService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class UtilisateurServiceImpl implements IUtilisateurService {
 	
 private IUtilisateurDao dao;

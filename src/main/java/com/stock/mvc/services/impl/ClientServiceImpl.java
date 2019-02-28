@@ -2,10 +2,14 @@ package com.stock.mvc.services.impl;
 
 import java.util.List;
 
+
+
 import com.stock.mvc.dao.IClientDao;
 import com.stock.mvc.entities.Client;
 import com.stock.mvc.services.IClientService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class ClientServiceImpl implements IClientService{
 	
 private IClientDao dao;

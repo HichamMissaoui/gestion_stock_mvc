@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.IFournisseurDao;
 import com.stock.mvc.entities.Fournisseur;
 import com.stock.mvc.services.IFournisseurService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class FournisseurServiceImpl implements IFournisseurService{
 	
 private IFournisseurDao dao;

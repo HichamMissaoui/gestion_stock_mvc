@@ -1,4 +1,4 @@
-package com.stock.mvc;
+package com.stock.mvc.test;
 
 import java.io.File;
 import java.io.FileInputStream;

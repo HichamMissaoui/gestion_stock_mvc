@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.ILigneCommandeFournisseurDao;
 import com.stock.mvc.entities.LigneCommandeFournisseur;
 import com.stock.mvc.services.ILigneCommandeFournisseurservice;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class LigneCommandeFournisseurServiceImpl implements ILigneCommandeFournisseurservice {
 
 	

@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.stock.mvc.dao.IGenericDao;
 
 @SuppressWarnings("unchecked")
@@ -43,13 +45,13 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public List<E> selectAll() {
-		Query query = em.createQuery("Select t from " + type.getSimpleName() + "t");
+		Query query = em.createQuery("Select t from " + type.getSimpleName() + " t");
 		return query.getResultList();
 	}
 
 	@Override
 	public List<E> selectAll(String sortField, String sort) {
-		Query query = em.createQuery("Select t from " + type.getSimpleName() + "t order by " + sortField + " " + sort);
+		Query query = em.createQuery("Select t from " + type.getSimpleName() + " t order by " + sortField + " " + sort);
 		return query.getResultList();
 	}
 
@@ -67,14 +69,14 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public E findOne(String paramName, Object paramValue) {
-		Query query = em.createQuery("Select t from " + type.getSimpleName() + "t where " + paramName + "= :x");
+		Query query = em.createQuery("Select t from " + type.getSimpleName() + " t where " + paramName + "= :x");
 		query.setParameter(paramName, paramValue);
 		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 	}
 
 	@Override
 	public E findOne(String[] paramNames, Object[] paramValues) {
-		String queryString = "select e from " + type.getSimpleName() + "e where ";
+		String queryString = "select e from " + type.getSimpleName() + " e where ";
 		int len = paramNames.length;
 		for(int i=0; i<len; i++) {
 			queryString += "e." + paramNames[i] + "= :x" + i;

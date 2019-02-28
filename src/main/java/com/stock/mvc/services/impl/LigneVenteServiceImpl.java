@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.ILigneVenteDao;
 import com.stock.mvc.entities.LigneVente;
 import com.stock.mvc.services.ILigneVenteService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class LigneVenteServiceImpl implements ILigneVenteService {
 
 	

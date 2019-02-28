@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.IVenteDao;
 import com.stock.mvc.entities.Vente;
 import com.stock.mvc.services.IVenteService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class VenteServiceImpl implements IVenteService {
 
 	

@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.ICommandeClientDao;
 import com.stock.mvc.entities.CommandeClient;
 import com.stock.mvc.services.ICommandeClientService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class CommandeClientServiceImpl implements ICommandeClientService {
 
 	

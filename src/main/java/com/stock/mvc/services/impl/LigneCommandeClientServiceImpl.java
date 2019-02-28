@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.ILigneCommandeClientDao;
 import com.stock.mvc.entities.LigneCommandeClient;
 import com.stock.mvc.services.ILigneCommandeClientService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class LigneCommandeClientServiceImpl implements ILigneCommandeClientService {
 
 	

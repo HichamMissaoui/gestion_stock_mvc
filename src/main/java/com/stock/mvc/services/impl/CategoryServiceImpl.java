@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.ICategoryDao;
 import com.stock.mvc.entities.Category;
 import com.stock.mvc.services.ICategoryService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class CategoryServiceImpl implements ICategoryService{
 	
 private ICategoryDao dao;

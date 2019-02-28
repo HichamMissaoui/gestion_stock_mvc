@@ -5,7 +5,9 @@ import java.util.List;
 import com.stock.mvc.dao.IMvtStkDao;
 import com.stock.mvc.entities.MvtStk;
 import com.stock.mvc.services.IMvtStkService;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class MvtStkServiceImpl implements IMvtStkService {
 
 	
