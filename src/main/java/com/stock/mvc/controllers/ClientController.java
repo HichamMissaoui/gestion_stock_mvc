@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -69,11 +70,43 @@ public class ClientController {
 					}
 				}
 					}
-			clientService.save(client);
+			
+			if(client.getId() != null) {
+				clientService.update(client);
 
+			}else {
+				clientService.save(client);				
+			}
 		}
 		
 		return "redirect:/client/";
+	}
+	
+	@RequestMapping(value="/modifier/{id}", method = RequestMethod.GET)
+	public String modifierClient(Model model,@PathVariable Long id) {
+		if(id != null) {
+			Client client = clientService.getById(id);
+			if(client != null) {
+				model.addAttribute("client", client);
+				return "client/modifierClient";
+			}
+		}
+		return "erreur/erreur";
+		
+	}
+	
+	@RequestMapping(value="/supprimer/{id}", method = RequestMethod.GET)
+	public String supprimerClient(@PathVariable Long id) {
+		if(id != null) {
+			Client client = clientService.getById(id);
+			if(client != null) {
+				clientService.remove(id);
+				return "redirect:/client/";
+			}
+			
+			}
+		return "erreur/erreur";
+		
 	}
 
 }

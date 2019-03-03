@@ -71,66 +71,56 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							<fmt:message key="common.client" />
+							<fmt:message key="client.nouveau" />
 						</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				<div class="row">
-					<div class=col-lg-12">
-						<ol class="breadcrumb">
-							<li><a href="<c:url value="/client/nouveau" />"><i class="fa fa-plus" >&nbsp; <fmt:message key="common.ajouter" /></i></a></li>							
-							<li><a href="#"><i class="fa fa-download" >&nbsp; <fmt:message key="common.exporter" /></i></a></li>
-							<li><a href="#"><i class="fa fa-upload" >&nbsp; <fmt:message key="common.importer" /></i></a></li>
-						</ol>
-					</div>
-				</div>
+				
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<fmt:message key="client.liste" />
+								<fmt:message key="client.nouveau" />
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-								<table width="100%"
-									class="table table-striped table-bordered table-hover"
-									id="dataTables-example">
-									<thead>
-										<tr>
-											<th><fmt:message key="common.photo" /></th>
-											<th><fmt:message key="common.nom" /></th>
-											<th><fmt:message key="common.prenom" /></th>
-											<th><fmt:message key="common.adresse" /></th>
-											<th><fmt:message key="common.mail" /></th>
-											<th><fmt:message key="common.actions" /></th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${clients }" var="client">
-											<tr class="odd gradeX">
-												<td class="center"><img src="${client.getPhoto() }"
-													width="50px" height="50px" /></td>
-												<td>${client.getNom() }</td>
-												<td>${client.getPrenom() }</td>
-												<td>${client.getAdresse() }</td>
-												<td>${client.getMail() }</td>
-												<td>
-												
-												<c:url value="/client/modifier/${client.getId() }" var="urlModif" />
-												<a href="${urlModif }"><i class="fa fa-edit" ></i></a>
-												&nbsp; | &nbsp;
-												<c:url value="/client/supprimer/" var="urlSuppr" />
-												<a id="${client.getId() }" href="#" onclick="confirmSupp(this.id);return false;"><i class="fa fa-trash-o" ></i></a>
-												
-												</td>
-											</tr>
-										</c:forEach>
+							<c:url value="/client/enregistrer" var="urlEnregistrer" />
+								<f:form modelAttribute="client" action="${urlEnregistrer }" method="post" enctype="multipart/form-data">
+									<f:hidden path="id"/>
+									<f:hidden path="photo"/>
+									<div class="form-group">
+										<label><fmt:message key="common.nom" /></label> 
+										<f:input path="nom" class="form-control" placeholder="nom" />
+									</div>
+									<div class="form-group">
+										<label><fmt:message key="common.prenom" /></label> 
+										<f:input path="prenom" class="form-control" placeholder="prenom" />
+									</div>
+									<div class="form-group">
+										<label><fmt:message key="common.adresse" /></label> 
+										<f:input path="adresse" class="form-control" placeholder="adresse" />
+									</div>
+									<div class="form-group">
+										<label><fmt:message key="common.mail" /></label>
+											<f:input path="mail" class="form-control" placeholder="mail" />
+									</div>
+									<div class="form-group">
+                                            <label><fmt:message key="common.photo" /></label>
+                                            <input type="file" name="file">
+                                        </div>
+									<div class="panel-footer">
+										<button type="submit" class="btn btn-primary">
+											<i class="fa fa-save">&nbsp;<fmt:message key="common.enregistrer" /></i>
+										</button>
+										<a href="<c:url value="/client/" />" class="btn btn-danger">
+											<i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i>
+										</a>
 
+									</div>
+								</f:form>
 
-									</tbody>
-								</table>
 								<!-- /.table-responsive -->
 
 							</div>
@@ -179,14 +169,6 @@
 				responsive : true
 			});
 		});
-		
-		function confirmSupp(id){
-			var r = confirm('<fmt:message key="client.confirmer.suppression" />');
-			if (r == true) {
-				url = '${urlSuppr}';
-				window.location.href = url + id;
-			}  
-		}
 	</script>
 </body>
 

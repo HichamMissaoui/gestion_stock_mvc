@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class LigneCommandeClient implements Serializable{
 	@Id
 	@GeneratedValue()
-	private long id;
+	private Long id;
 	
 	@ManyToOne
 	private CommandeClient commandeClient;
@@ -23,11 +23,11 @@ public class LigneCommandeClient implements Serializable{
 		
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

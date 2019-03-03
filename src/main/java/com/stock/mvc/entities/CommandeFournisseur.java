@@ -17,7 +17,7 @@ public class CommandeFournisseur implements Serializable{
 
 	@Id
 	@GeneratedValue()
-	private long id;
+	private Long id;
 	
 	private String code;
 	
@@ -34,11 +34,11 @@ public class CommandeFournisseur implements Serializable{
 		
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

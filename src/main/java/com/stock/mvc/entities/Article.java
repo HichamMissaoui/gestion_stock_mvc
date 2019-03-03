@@ -14,7 +14,7 @@ public class Article implements Serializable {
 
 	@Id
 	@GeneratedValue()
-	private long id;
+	private Long id;
 	
 	private String codeArticle;
 	private String designation;
@@ -30,11 +30,11 @@ public class Article implements Serializable {
 	@ManyToOne
 	private Category category;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
