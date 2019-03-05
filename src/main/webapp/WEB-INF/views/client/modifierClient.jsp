@@ -92,19 +92,19 @@
 									<f:hidden path="photo"/>
 									<div class="form-group">
 										<label><fmt:message key="common.nom" /></label> 
-										<f:input path="nom" class="form-control" placeholder="nom" />
+										<f:input path="nom" class="form-control" placeholder="nom" required="required" />
 									</div>
 									<div class="form-group">
 										<label><fmt:message key="common.prenom" /></label> 
-										<f:input path="prenom" class="form-control" placeholder="prenom" />
+										<f:input path="prenom" class="form-control" placeholder="prenom" required="required" />
 									</div>
 									<div class="form-group">
 										<label><fmt:message key="common.adresse" /></label> 
-										<f:input path="adresse" class="form-control" placeholder="adresse" />
+										<f:input path="adresse" class="form-control" placeholder="adresse" required="required" />
 									</div>
 									<div class="form-group">
 										<label><fmt:message key="common.mail" /></label>
-											<f:input path="mail" class="form-control" placeholder="mail" />
+											<f:input path="mail" class="form-control" placeholder="mail" required="required" />
 									</div>
 									<div class="form-group">
                                             <label><fmt:message key="common.photo" /></label>

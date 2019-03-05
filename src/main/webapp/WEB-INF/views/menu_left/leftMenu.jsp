@@ -49,7 +49,7 @@
 				<c:url value="/utilisateur/" var="user" />
 					<li><a href="${user }"><fmt:message key="common.parametrage.utilisateur"/></a></li>
 					<c:url value="/category/" var="category" />
-					<li><a href="buttons.html"><fmt:message key="common.parametrage.category"/></a></li>
+					<li><a href="${category }"><fmt:message key="common.parametrage.category"/></a></li>
 					
 				</ul> <!-- /.nav-second-level --></li>
 			

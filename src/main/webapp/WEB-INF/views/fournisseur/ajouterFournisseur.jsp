@@ -71,7 +71,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							<fmt:message key="client.nouveau" />
+							<fmt:message key="fournisseur.nouveau" />
 						</h1>
 					</div>
 					<!-- /.col-lg-12 -->
@@ -82,15 +82,15 @@
 					<div class="col-lg-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<fmt:message key="client.nouveau" />
+								<fmt:message key="fournisseur.nouveau" />
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-							<c:url value="/client/enregistrer" var="urlEnregistrer" />
-								<f:form modelAttribute="client" action="${urlEnregistrer }" method="post" enctype="multipart/form-data">
+							<c:url value="/fournisseur/enregistrer" var="urlEnregistrer" />
+								<f:form modelAttribute="fournisseur" action="${urlEnregistrer }" method="post" enctype="multipart/form-data">
 									<div class="form-group">
 										<label><fmt:message key="common.nom" /></label> 
-										<f:input path="nom" class="form-control" placeholder="nom" required="required" />
+										<f:input path="nom" class="form-control" placeholder="nom" required="required"/>
 									</div>
 									<div class="form-group">
 										<label><fmt:message key="common.prenom" /></label> 
@@ -112,7 +112,7 @@
 										<button type="submit" class="btn btn-primary">
 											<i class="fa fa-save">&nbsp;<fmt:message key="common.enregistrer" /></i>
 										</button>
-										<a href="<c:url value="/client/" />" class="btn btn-danger">
+										<a href="<c:url value="/fournisseur/" />" class="btn btn-danger">
 											<i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i>
 										</a>
 
