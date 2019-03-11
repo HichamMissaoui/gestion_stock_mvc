@@ -71,38 +71,68 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							<fmt:message key="category.nouveau" />
+							<fmt:message key="article.nouveau" />
 						</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				
+
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<fmt:message key="category.nouveau" />
+								<fmt:message key="article.nouveau" />
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-							<c:url value="/category/enregistrer" var="urlEnregistrer" />
-								<f:form modelAttribute="category" action="${urlEnregistrer }" method="post">
+								<c:url value="/article/enregistrer" var="urlEnregistrer" />
+								<f:form modelAttribute="article" action="${urlEnregistrer }"
+									method="post" enctype="multipart/form-data">
 									<div class="form-group">
 										<label><fmt:message key="common.code" /></label> 
 										<f:input path="code" class="form-control" placeholder="code" required="required" />
 									</div>
 									<div class="form-group">
-										<label><fmt:message key="common.designation" /></label> 
-										<f:input path="designation" class="form-control" placeholder="designation" required="required" />
+										<label><fmt:message key="common.designation" /></label>
+										<f:input path="designation" class="form-control"
+											placeholder="designation" required="required" />
+									</div>
+									<div class="form-group">
+										<label><fmt:message key="common.prix.unitaireHT" /></label>
+										<f:input id="prixUnitaireHT" path="prixUnitaireHT" class="form-control"
+											placeholder="Prix Unitaire HT" required="required" />
+									</div>
+									<div class="form-group">
+										<label><fmt:message key="common.tva" /></label>
+										<f:input id="tauxTva" path="tauxTva" class="form-control"
+											placeholder="Taux Tva" required="required" />
+									</div>
+									<div class="form-group">
+										<label><fmt:message key="common.prix.unitaireTTC" /></label>
+										<f:input id="prixUnitaireTTC" path="prixUnitaireTTC" class="form-control"
+											placeholder="Prix Unitaire TTC" required="required" />
 									</div>
 
+
+									<div class="form-group">
+										<label><fmt:message key="category" /></label>
+										<f:select class="form-control" path="category.id" items="${categories }" itemLabel="designation" itemValue="id">
+										</f:select>
+									</div>
+
+									<div class="form-group">
+										<label><fmt:message key="common.photo" /></label> <input
+											type="file" name="file">
+									</div>
 									<div class="panel-footer">
 										<button type="submit" class="btn btn-primary">
-											<i class="fa fa-save">&nbsp;<fmt:message key="common.enregistrer" /></i>
+											<i class="fa fa-save">&nbsp;<fmt:message
+													key="common.enregistrer" /></i>
 										</button>
-										<a href="<c:url value="/category/" />" class="btn btn-danger">
-											<i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i>
+										<a href="<c:url value="/article/" />" class="btn btn-danger">
+											<i class="fa fa-arrow-left">&nbsp;<fmt:message
+													key="common.annuler" /></i>
 										</a>
 
 									</div>
@@ -148,6 +178,10 @@
 		src="<%=request.getContextPath()%>/resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/vendor/datatables-responsive/dataTables.responsive.js"></script>
+		
+		<!-- My Custom JavaScript files -->
+	<script
+		src="<%=request.getContextPath()%>/resources/js/article.js"></script>
 
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 	<script>
@@ -156,6 +190,8 @@
 				responsive : true
 			});
 		});
+		
+		
 	</script>
 </body>
 

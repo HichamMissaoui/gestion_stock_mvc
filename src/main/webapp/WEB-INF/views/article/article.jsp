@@ -71,43 +71,68 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							<fmt:message key="category.nouveau" />
+							<fmt:message key="common.article" />
 						</h1>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
 				<!-- /.row -->
-				
+				<div class="row">
+					<div class=col-lg-12">
+						<ol class="breadcrumb">
+							<li><a href="<c:url value="/article/nouveau" />"><i class="fa fa-plus" >&nbsp; <fmt:message key="common.ajouter" /></i></a></li>							
+							<li><a href="#"><i class="fa fa-download" >&nbsp; <fmt:message key="common.exporter" /></i></a></li>
+							<li><a href="#"><i class="fa fa-upload" >&nbsp; <fmt:message key="common.importer" /></i></a></li>
+						</ol>
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="panel panel-primary">
+						<div class="panel panel-default">
 							<div class="panel-heading">
-								<fmt:message key="category.nouveau" />
+								<fmt:message key="article.liste" />
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
-							<c:url value="/category/enregistrer" var="urlEnregistrer" />
-								<f:form modelAttribute="category" action="${urlEnregistrer }" method="post">
-									<div class="form-group">
-										<label><fmt:message key="common.code" /></label> 
-										<f:input path="code" class="form-control" placeholder="code" required="required" />
-									</div>
-									<div class="form-group">
-										<label><fmt:message key="common.designation" /></label> 
-										<f:input path="designation" class="form-control" placeholder="designation" required="required" />
-									</div>
+								<table width="100%"
+									class="table table-striped table-bordered table-hover"
+									id="dataTables-example">
+									<thead>
+										<tr>
+											<th><fmt:message key="common.photo" /></th>
+											<th><fmt:message key="common.code" /></th>
+											<th><fmt:message key="common.designation" /></th>
+											<th><fmt:message key="common.prix.unitaireHT" /></th>
+											<th><fmt:message key="common.tva" /></th>
+											<th><fmt:message key="common.prix.unitaireTTC" /></th>
+											<th><fmt:message key="common.actions" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${articles }" var="article">
+											<tr class="odd gradeX">
+												<td class="center"><img src="${article.getPhoto() }"
+													width="50px" height="50px" /></td>
+												<td>${article.getCode() }</td>
+												<td>${article.getDesignation() }</td>
+												<td>${article.getPrixUnitaireHT() }</td>
+												<td>${article.getTauxTva() }</td>
+												<td>${article.getPrixUnitaireTTC() }</td>
+												<td>
+												
+												<c:url value="/article/modifier/${article.getId() }" var="urlModif" />
+												<a href="${urlModif }"><i class="fa fa-edit" ></i></a>
+												&nbsp; | &nbsp;
+												<c:url value="/article/supprimer/" var="urlSuppr" />
+												<a id="${article.getId() }" href="#" onclick="confirmSupp(this.id);return false;"><i class="fa fa-trash-o" ></i></a>
+												
+												</td>
+											</tr>
+										</c:forEach>
 
-									<div class="panel-footer">
-										<button type="submit" class="btn btn-primary">
-											<i class="fa fa-save">&nbsp;<fmt:message key="common.enregistrer" /></i>
-										</button>
-										<a href="<c:url value="/category/" />" class="btn btn-danger">
-											<i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i>
-										</a>
 
-									</div>
-								</f:form>
-
+									</tbody>
+								</table>
 								<!-- /.table-responsive -->
 
 							</div>
@@ -156,6 +181,14 @@
 				responsive : true
 			});
 		});
+		
+		function confirmSupp(id){
+			var r = confirm('<fmt:message key="article.confirmer.suppression" />');
+			if (r == true) {
+				url = '${urlSuppr}';
+				window.location.href = url + id;
+			}  
+		}
 	</script>
 </body>
 

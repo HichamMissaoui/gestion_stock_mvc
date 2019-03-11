@@ -99,8 +99,8 @@
 									id="dataTables-example">
 									<thead>
 										<tr>
-											<th><fmt:message key="category.code" /></th>
-											<th><fmt:message key="category.designation" /></th>
+											<th><fmt:message key="common.code" /></th>
+											<th><fmt:message key="common.designation" /></th>
 											<th><fmt:message key="common.actions" /></th>
 										</tr>
 									</thead>

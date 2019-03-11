@@ -90,11 +90,11 @@
 								<f:form modelAttribute="category" action="${urlEnregistrer }" method="post">
 									<f:hidden path="id"/>
 									<div class="form-group">
-										<label><fmt:message key="category.code" /></label> 
+										<label><fmt:message key="common.code" /></label> 
 										<f:input path="code" class="form-control" placeholder="code" required="required" />
 									</div>
 									<div class="form-group">
-										<label><fmt:message key="category.designation" /></label> 
+										<label><fmt:message key="common.designation" /></label> 
 										<f:input path="designation" class="form-control" placeholder="designation" required="required" />
 									</div>
 									<div class="panel-footer">

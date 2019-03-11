@@ -16,7 +16,7 @@ public class Article implements Serializable {
 	@GeneratedValue()
 	private Long id;
 	
-	private String codeArticle;
+	private String code;
 	private String designation;
 	private BigDecimal prixUnitaireHT;
 	private BigDecimal tauxTva;
@@ -38,12 +38,12 @@ public class Article implements Serializable {
 		this.id = id;
 	}
 
-	public String getCodeArticle() {
-		return codeArticle;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCodeArticle(String codeArticle) {
-		this.codeArticle = codeArticle;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getDesignation() {
